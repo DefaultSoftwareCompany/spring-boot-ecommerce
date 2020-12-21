@@ -1,0 +1,21 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Add Firm</title>
+</head>
+<body>
+
+<form action="#" th:action="@{/api/firm}" method="post" th:object="${firm}">
+    <input type="text" name="firmName" placeholder="Firm Name">
+    <input type="email" name="firmEmail" placeholder="Firm Email">
+    <input type="text" name="firmWebsite" placeholder="Firm Website">
+    <input type="text" name="phoneNumber" placeholder="Firm PhoneNumber">
+    <button type="submit">Submit</button>
+</form>
+
+</body>
+</html>

@@ -1,0 +1,44 @@
+table {
+    border-collapse: collapse;
+    width: 90%;
+    margin: 50px auto;
+    text-align: center;
+}
+
+th,
+td {
+    border-collapse: collapse;
+    border: 1px solid black;
+}
+
+th {
+    padding: 5px;
+}
+
+td input {
+    display: block;
+    border: 0;
+    padding: 5px;
+    width: 90%;
+}
+
+td input:focus {
+    outline: 1px solid blue;
+}
+
+textarea {
+    padding: 5px;
+    width: 90%;
+    height: 60px;
+    resize: none;
+    line-height: 1.3;
+    border: 0;
+    overflow: auto;
+}
+
+.add-category {
+    width: 100px;
+    cursor: pointer;
+    padding: 8px;
+    font-weight: bold;
+}

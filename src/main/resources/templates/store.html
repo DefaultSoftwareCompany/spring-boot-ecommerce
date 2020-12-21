@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Cart</title>
+    <link rel="stylesheet" href="../static/css/store.css">
+</head>
+
+<body>
+
+<div class="cart">
+    <table>
+        <thead>
+        <tr>
+            <th>Name</th>
+            <th>Quantity</th>
+            <th>Price</th>
+            <th>Total</th>
+            <th>Remove</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td>Product 1</td>
+            <td><span class="decrement">-</span><span class="quantity">1</span><span class="increment">+</span></td>
+            <td class="price">14</td>
+            <td class="total">14</td>
+            <td class="remove">x</td>
+        </tr>
+        <tr>
+            <td>Product 2</td>
+            <td><span class="decrement">-</span><span class="quantity">1</span><span class="increment">+</span></td>
+            <td class="price">15</td>
+            <td class="total">15</td>
+            <td class="remove">x</td>
+        </tr>
+        <tr>
+            <td>Product 3</td>
+            <td><span class="decrement">-</span><span class="quantity">1</span><span class="increment">+</span></td>
+            <td class="price">16</td>
+            <td class="total">16</td>
+            <td class="remove">x</td>
+        </tr>
+        <tr>
+            <td>Product 4</td>
+            <td><span class="decrement">-</span><span class="quantity">1</span><span class="increment">+</span></td>
+            <td class="price">17</td>
+            <td class="total">17</td>
+            <td class="remove">x</td>
+        </tr>
+        </tbody>
+        <tfoot>
+        <tr>
+            <td colspan="2" class="clear">Clear</td>
+            <td colspan="2" id="sum">Total Sum: 0</td>
+            <td>
+                <a href="products.html">Go To Shopping &#8594;</a>
+            </td>
+        </tr>
+        </tfoot>
+    </table>
+</div>
+
+<script src="../static/js/jquery-3.5.1.js"></script>
+<script src="../static/js/cart.js"></script>
+
+</body>
+
+</html>
