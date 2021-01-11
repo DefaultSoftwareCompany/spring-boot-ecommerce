@@ -4,7 +4,6 @@ import com.dsc.model.User;
 import com.dsc.repository.UserRepository;
 import org.springframework.stereotype.Service;
 
-import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -13,14 +12,6 @@ public class UserService {
 
     public UserService(UserRepository repository) {
         this.repository = repository;
-    }
-
-    public List<User> getAll() {
-        return repository.findAll();
-    }
-
-    public void delete(Long userId) {
-        repository.deleteById(userId);
     }
 
     public User getByUsername(String username) {
