@@ -3,11 +3,11 @@ package com.dsc.controller;
 import com.dsc.model.Category;
 import com.dsc.service.CategoryService;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.*;
-import org.springframework.web.multipart.MultipartHttpServletRequest;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RestController;
 
-import javax.servlet.http.HttpServletRequest;
-import java.io.IOException;
+import java.util.List;
 
 @RestController
 public class CategoryController {
@@ -17,18 +17,13 @@ public class CategoryController {
         this.service = service;
     }
 
-    @PostMapping("/api/category/save")
-    public ResponseEntity<Category> save(HttpServletRequest request, MultipartHttpServletRequest mrequest) throws IOException {
-        return ResponseEntity.ok(service.save(request, mrequest));
+    @GetMapping("/api/category/all")
+    public ResponseEntity<List<Category>> getAll() {
+        return ResponseEntity.ok(service.getAll());
     }
 
-    @PutMapping("/api/category/edit/{categoryId}")
-    public ResponseEntity<Category> update(@PathVariable Short categoryId, HttpServletRequest request, MultipartHttpServletRequest mrequest) throws IOException {
-        return ResponseEntity.ok(service.edit(categoryId, request, mrequest));
-    }
-
-    @DeleteMapping("/api/category/delete/{id}")
-    public ResponseEntity<Category> delete(@PathVariable Short id) {
-        return ResponseEntity.ok(service.delete(id));
+    @GetMapping("/api/category/get/{categoryId}")
+    public ResponseEntity<Category> getOne(@PathVariable Short categoryId) throws Exception {
+        return ResponseEntity.ok(service.getOne(categoryId));
     }
 }

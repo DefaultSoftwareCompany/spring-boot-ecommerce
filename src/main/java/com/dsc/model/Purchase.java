@@ -1,46 +1,40 @@
 package com.dsc.model;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Data;
 
 import javax.persistence.*;
 import java.io.Serializable;
-import java.sql.Date;
 
 @Data
 @Entity
-@Table(name = "ordered_products")
-public class OrderedProducts implements Serializable {
+public class Purchase implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "order_id")
-    private Long orderId;
+    private Long purchaseId;
 
     @ManyToOne
-    @JoinColumn(name = "product_id")
+    @JoinColumn
     private Product product;
 
     @ManyToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name = "customer_id")
-    private Customer customer;
+    @JoinColumn
+    private User customer;
 
-    @Column(name = "order_quantity")
     private Integer orderQuantity;
 
     @ManyToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name = "office_id")
+    @JoinColumn
     private DeliveryOffice office;
 
-    @Column(name = "date_of_order")
     private String dateOfOrder;
 
-    @Column(name = "deadline")
+    @Column(columnDefinition = "smallint default 20")
     private byte deadline;
 
-    @Column(name = "completion")
+    @Column(columnDefinition = "boolean default false")
     private Boolean completion;
 
     @OneToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name = "address_id")
+    @JoinColumn
     private Address address;
 }

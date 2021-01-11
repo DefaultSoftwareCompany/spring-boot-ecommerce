@@ -2,46 +2,44 @@ package com.dsc.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Data;
-import org.hibernate.annotations.Fetch;
-import org.hibernate.annotations.FetchMode;
 
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.List;
+import java.util.Set;
 
 @Data
 @Entity
-@Table(name = "customer")
-public class Customer implements Serializable {
+@Table(name = "users")
+public class User implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "customer_id")
-    private Long customerId;
+    private Long userId;
 
-    @Column(name = "first_name")
+    @Column(unique = true, nullable = false)
+    private String userName;
+
     private String firstName;
 
-    @Column(name = "last_name")
     private String lastName;
 
-    @Column(name = "phone_number")
     private String phoneNumber;
 
-    @Column(name = "password")
+    @Column(nullable = false)
     private String password;
 
-    @Column(name = "email")
+    @Column(unique = true)
     private String email;
 
     @OneToMany(mappedBy = "customer", fetch = FetchType.LAZY)
     @JsonIgnore
-    private List<OrderedProducts> products;
+    private List<Purchase> purchases;
 
     @ManyToMany(fetch = FetchType.EAGER)
     @JoinTable(
             name = "user_roles",
-            joinColumns = @JoinColumn(name = "customer_id"),
+            joinColumns = @JoinColumn(name = "user_id"),
             inverseJoinColumns = @JoinColumn(name = "role_id")
     )
-    private List<Roles> roles;
+    private Set<Roles> roles;
 }

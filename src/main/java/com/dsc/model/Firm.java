@@ -9,26 +9,24 @@ import java.util.List;
 
 @Data
 @Entity
-@Table(name = "firm")
 public class Firm implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "firm_id")
     private Long firmId;
 
-    @Column(name = "firm_name")
+    @Column(unique = true)
     private String firmName;
 
-    @Column(name = "phone_number")
+    @Column(unique = true)
     private String phoneNumber;
 
-    @Column(name = "firm_email")
+    @Column(unique = true)
     private String firmEmail;
 
-    @Column(name = "firm_website")
+    @Column(unique = true)
     private String firmWebsite;
 
-    @OneToMany(mappedBy = "firm", fetch = FetchType.EAGER)
+    @OneToMany(mappedBy = "firm")
     @JsonIgnore
     private List<Product> products;
 }
