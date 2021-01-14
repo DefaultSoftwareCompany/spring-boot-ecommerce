@@ -20,6 +20,21 @@ public class Purchase implements Serializable {
     @JoinColumn
     private User customer;
 
+    @Override
+    public String toString() {
+        return "Purchase{" +
+                "purchaseId=" + purchaseId +
+                ", product=" + product +
+                ", customer=" + customer +
+                ", orderQuantity=" + orderQuantity +
+                ", office=" + office +
+                ", dateOfOrder='" + dateOfOrder + '\'' +
+                ", deadline=" + deadline +
+                ", completion=" + completion +
+                ", address=" + address +
+                '}';
+    }
+
     private Integer orderQuantity;
 
     @ManyToOne(fetch = FetchType.EAGER)

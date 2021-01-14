@@ -20,6 +20,17 @@ public class Category implements Serializable {
     @Column(columnDefinition = "text")
     private String categoryDescription;
 
+    @Override
+    public String toString() {
+        return "Category{" +
+                "categoryId=" + categoryId +
+                ", categoryName='" + categoryName + '\'' +
+                ", categoryDescription='" + categoryDescription + '\'' +
+                ", categoryImage=" + categoryImage +
+                ", products=" + products +
+                '}';
+    }
+
     @OneToOne(fetch = FetchType.EAGER)
     @JoinColumn
     private Image categoryImage;

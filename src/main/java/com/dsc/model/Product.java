@@ -20,18 +20,30 @@ public class Product implements Serializable {
 
     private Long quantity;
 
+    @Override
+    public String toString() {
+        return "Product{" +
+                "productId=" + productId +
+                ", productName='" + productName + '\'' +
+                ", productPrice=" + productPrice +
+                ", quantity=" + quantity +
+                ", productImage=" + productImage +
+                ", category=" + category +
+                ", firm=" + firm +
+                ", dateOfManufacture='" + dateOfManufacture + '\'' +
+                '}';
+    }
+
     @OneToOne(fetch = FetchType.EAGER)
     @JoinColumn
     private Image productImage;
 
     @ManyToOne
     @JoinColumn
-    @JsonIgnore
     private Category category;
 
     @ManyToOne
     @JoinColumn
-    @JsonIgnore
     private Firm firm;
 
     private String dateOfManufacture;

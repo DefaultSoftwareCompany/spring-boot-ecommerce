@@ -24,6 +24,17 @@ public class DeliveryOffice implements Serializable {
     @Column(unique = true)
     private String email;
 
+    @Override
+    public String toString() {
+        return "DeliveryOffice{" +
+                "officeId=" + officeId +
+                ", phoneNumber='" + phoneNumber + '\'' +
+                ", address=" + address +
+                ", email='" + email + '\'' +
+                ", purchases=" + purchases +
+                '}';
+    }
+
     @OneToMany(mappedBy = "office")
     @JsonIgnore
     private List<Purchase> purchases;

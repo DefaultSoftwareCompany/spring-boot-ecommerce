@@ -17,6 +17,17 @@ public class Address implements Serializable {
 
     private String districtName;
 
+    @Override
+    public String toString() {
+        return "Address{" +
+                "addressId=" + addressId +
+                ", cityName='" + cityName + '\'' +
+                ", districtName='" + districtName + '\'' +
+                ", streetName='" + streetName + '\'' +
+                ", houseNumber='" + houseNumber + '\'' +
+                '}';
+    }
+
     private String streetName;
 
     private String houseNumber;

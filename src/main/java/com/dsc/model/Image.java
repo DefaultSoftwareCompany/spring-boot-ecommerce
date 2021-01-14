@@ -19,6 +19,18 @@ public class Image implements Serializable {
 
     private Long imageSize;
 
+    @Override
+    public String toString() {
+        return "Image{" +
+                "assetsId=" + assetsId +
+                ", name='" + name + '\'' +
+                ", imageSize=" + imageSize +
+                ", contentType='" + contentType + '\'' +
+                ", extension='" + extension + '\'' +
+                ", url=" + url +
+                '}';
+    }
+
     private String contentType;
 
     private String extension;

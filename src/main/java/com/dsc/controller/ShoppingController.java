@@ -20,13 +20,18 @@ public class ShoppingController {
         this.service = service;
     }
 
-    @PostMapping("/api/shopping/save")
-    public ResponseEntity<Purchase> save(@ModelAttribute Purchase purchase) {
+    @PostMapping("/api/user/shopping/save")
+    public ResponseEntity<Purchase> save(@ModelAttribute Purchase purchase) throws Exception {
         return ResponseEntity.ok(service.save(purchase));
     }
 
-    @PostMapping("/api/shopping/orders/all/{customerId}")
+    @PostMapping("/api/user/shopping/{customerId}/all")
     public ResponseEntity<List<Purchase>> getAllByCustomer(@PathVariable Long customerId) {
         return ResponseEntity.ok(service.getAllByCustomer(customerId));
+    }
+
+    @PostMapping("/api/user/shopping/confirm/{purchaseId}")
+    public void confirm(@PathVariable Long purchaseId) {
+        service.confirm(purchaseId);
     }
 }

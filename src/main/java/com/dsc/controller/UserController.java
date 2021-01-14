@@ -1,14 +1,9 @@
 package com.dsc.controller;
 
-import com.dsc.model.Purchase;
 import com.dsc.model.User;
 import com.dsc.service.UserService;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RestController;
-
-import java.util.List;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 public class UserController {
@@ -28,9 +23,15 @@ public class UserController {
         return ResponseEntity.ok(service.getOne(userId));
     }
 
-    @GetMapping("/api/purchases/get/user/{userId}")
-    public ResponseEntity<List<Purchase>> getPurchasesByUser(@PathVariable Long userId) throws Exception {
-        return ResponseEntity.ok(service.getOne(userId).getPurchases());
+
+    @PostMapping("/api/customer/save")
+    public ResponseEntity<User> save(@ModelAttribute User user) throws Exception {
+        return ResponseEntity.ok(service.save(user));
+    }
+
+    @PutMapping("/api/user/edit/{userId}")
+    public ResponseEntity<User> edit(@PathVariable Long userId, @ModelAttribute User user) {
+        return ResponseEntity.ok(service.edit(user, userId));
     }
 
 }

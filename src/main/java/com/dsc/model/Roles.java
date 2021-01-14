@@ -23,10 +23,10 @@ public class Roles implements Serializable {
     private List<User> users;
 
     @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        Roles roles = (Roles) o;
-        return Objects.equals(roleName, roles.roleName);
+    public String toString() {
+        return "Roles{" +
+                "roleId=" + roleId +
+                ", roleName='" + roleName + '\'' +
+                '}';
     }
 }

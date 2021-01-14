@@ -29,4 +29,15 @@ public class Firm implements Serializable {
     @OneToMany(mappedBy = "firm")
     @JsonIgnore
     private List<Product> products;
+
+    @Override
+    public String toString() {
+        return "Firm{" +
+                "firmId=" + firmId +
+                ", firmName='" + firmName + '\'' +
+                ", phoneNumber='" + phoneNumber + '\'' +
+                ", firmEmail='" + firmEmail + '\'' +
+                ", firmWebsite='" + firmWebsite + '\'' +
+                '}';
+    }
 }
